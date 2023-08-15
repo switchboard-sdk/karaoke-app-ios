@@ -16,12 +16,14 @@ class MixerAudioSystem: AudioSystem {
     let musicGainNode = SBGainNode()
     let voiceGainNode = SBGainNode()
     let reverbNode = SBReverbNode()
+    let compressorNode = SBCompressorNode()
     let avpcNode = SBAutotuneNode()
 
     override init() {
         super.init()
 
         reverbNode.isEnabled = false
+        compressorNode.isEnabled = false
         avpcNode.isEnabled = false
 
         audioGraph.addNode(musicPlayer)
@@ -30,12 +32,14 @@ class MixerAudioSystem: AudioSystem {
         audioGraph.addNode(musicGainNode)
         audioGraph.addNode(voiceGainNode)
         audioGraph.addNode(reverbNode)
+        audioGraph.addNode(compressorNode)
         audioGraph.addNode(avpcNode)
         audioGraph.connect(musicPlayer, to: musicGainNode)
         audioGraph.connect(musicGainNode, to: mixerNode)
         audioGraph.connect(voicePlayer, to: voiceGainNode)
         audioGraph.connect(voiceGainNode, to: avpcNode)
-        audioGraph.connect(avpcNode, to: reverbNode)
+        audioGraph.connect(avpcNode, to: compressorNode)
+        audioGraph.connect(compressorNode, to: reverbNode)
         audioGraph.connect(reverbNode, to: mixerNode)
         audioGraph.connect(mixerNode, to: audioGraph.outputNode)
 
@@ -106,6 +110,10 @@ class MixerAudioSystem: AudioSystem {
 
     func enableReverb(enable: Bool) {
         reverbNode.isEnabled = enable
+    }
+
+    func enableCompressor(enable: Bool) {
+        compressorNode.isEnabled = enable
     }
 
     func enableAutotune(enable: Bool) {

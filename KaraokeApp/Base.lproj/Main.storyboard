@@ -279,7 +279,7 @@ Vivamus posuere justo massa, vitae tempus metus vestibulum a. Fusce vel egestas 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Vt-KH-fl6">
-                                <rect key="frame" x="20" y="20" width="353" height="433.33333333333331"/>
+                                <rect key="frame" x="20" y="19.999999999999972" width="353" height="474.33333333333326"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="switchboard-sdk-logo-text" translatesAutoresizingMaskIntoConstraints="NO" id="pwa-xo-3tC">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
@@ -369,7 +369,7 @@ Vivamus posuere justo massa, vitae tempus metus vestibulum a. Fusce vel egestas 
                                         <color key="tintColor" name="AccentColor"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DxG-ZV-bWt">
-                                        <rect key="frame" x="0.0" y="285.33333333333331" width="353" height="103.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="285.33333333333331" width="353" height="144.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Effects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYP-MT-6rT">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="21.666666666666668"/>
@@ -394,8 +394,25 @@ Vivamus posuere justo massa, vitae tempus metus vestibulum a. Fusce vel egestas 
                                                     </switch>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZ9-sE-Jil">
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hf-EN-xBB">
                                                 <rect key="frame" x="0.0" y="72.666666666666686" width="353" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compressor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyJ-b2-0nv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGd-dM-Sif">
+                                                        <rect key="frame" x="304" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="compressorSwitched:" destination="L3h-qD-0qJ" eventType="valueChanged" id="VZF-e4-3tN"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZ9-sE-Jil">
+                                                <rect key="frame" x="0.0" y="113.66666666666669" width="353" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic Vocal Pitch Correction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APA-ST-Sdw">
                                                         <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
@@ -414,7 +431,7 @@ Vivamus posuere justo massa, vitae tempus metus vestibulum a. Fusce vel egestas 
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMN-66-QVi">
-                                        <rect key="frame" x="0.0" y="399" width="353" height="34.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="440" width="353" height="34.333333333333314"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Export"/>
@@ -460,6 +477,7 @@ Vivamus posuere justo massa, vitae tempus metus vestibulum a. Fusce vel egestas 
                     <navigationItem key="navigationItem" id="59N-pZ-Dn8"/>
                     <connections>
                         <outlet property="avpcSwitch" destination="nzN-67-KnM" id="yck-Sg-66o"/>
+                        <outlet property="compressorSwitch" destination="uGd-dM-Sif" id="jdb-6w-bOw"/>
                         <outlet property="duration" destination="9U8-qN-O3f" id="ao4-z1-Dv9"/>
                         <outlet property="loader" destination="eU1-4I-tKS" id="P8P-py-2bz"/>
                         <outlet property="musicSlider" destination="03c-Hj-lDd" id="0OT-bl-Ucn"/>

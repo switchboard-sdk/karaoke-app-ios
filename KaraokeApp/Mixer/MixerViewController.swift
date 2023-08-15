@@ -22,6 +22,7 @@ class MixerViewController: UIViewController {
     @IBOutlet weak var musicSlider: UISlider!
 
     @IBOutlet weak var reverbSwitch: UISwitch!
+    @IBOutlet weak var compressorSwitch: UISwitch!
     @IBOutlet weak var avpcSwitch: UISwitch!
 
     @IBOutlet weak var loader: UIView!
@@ -44,6 +45,7 @@ class MixerViewController: UIViewController {
         vocalSlider.value = audioSystem.voiceGainNode.gain
         musicSlider.value = audioSystem.musicGainNode.gain
         reverbSwitch.isOn = audioSystem.reverbNode.isEnabled
+        compressorSwitch.isOn = audioSystem.compressorNode.isEnabled
         avpcSwitch.isOn = audioSystem.avpcNode.isEnabled
 
         displayLink = CADisplayLink(target: self, selector: #selector(updateUI))
@@ -110,6 +112,10 @@ class MixerViewController: UIViewController {
 
     @IBAction func reverbSwitched(_ sender: Any) {
         audioSystem.enableReverb(enable: reverbSwitch.isOn)
+    }
+
+    @IBAction func compressorSwitched(_ sender: Any) {
+        audioSystem.enableCompressor(enable: compressorSwitch.isOn)
     }
 
     @IBAction func avpcSwitched(_ sender: Any) {
