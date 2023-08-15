@@ -29,9 +29,13 @@ class SingViewController: UIViewController {
     override func viewDidLoad() {
         songTitle.text = currentSong.displayName
         lyrics.text = currentSong.lyrics
+        startButton.setTitle("Start", for: .normal)
 
+        updateUI()
         displayLink = CADisplayLink(target: self, selector: #selector(updateUI))
+        displayLink.add(to: .current, forMode: .common)
 
+        audioSystem.loadSong(songURL: currentSong.path)
         audioSystem.start()
     }
 
@@ -42,8 +46,13 @@ class SingViewController: UIViewController {
     @IBAction func startTapped(_ sender: Any) {
         if audioSystem.isPlaying() {
             displayLink.remove(from: .current, forMode: .common)
+            startButton.setTitle("Start", for: .normal)
+            audioSystem.finish()
+
+            let sender: Song = currentSong
+            self.performSegue(withIdentifier: "showMixer", sender: sender)
         } else {
-            displayLink.add(to: .current, forMode: .common)
+            startButton.setTitle("Finish", for: .normal)
             audioSystem.playAndRecord()
         }
     }
@@ -56,5 +65,10 @@ class SingViewController: UIViewController {
         rms.progress = audioSystem.vuMeterNode.level
         peak.progress = audioSystem.vuMeterNode.peak
     }
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! MixerViewController
+        let song = sender as! Song
+        vc.currentSong = song
+    }
 }

@@ -42,11 +42,16 @@ class SongListViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.songName.text = song.displayName
         cell.songDuration.text = song.duration
 
+        if audioSystem.audioPlayerNode.isPlaying, currentSong?.path == song.path {
+            cell.playButton.setTitle("Stop", for: .normal)
+        } else {
+            cell.playButton.setTitle("Play", for: .normal)
+        }
+
         return cell
     }
 
     func playTapped(sender: UITableViewCell) {
-        let cell = sender as! SongListTableViewCell
         let indexPath = tableView.indexPath(for: sender)
         let song = Song.songListData[indexPath!.row]
 
@@ -60,10 +65,10 @@ class SongListViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             audioSystem.play()
         }
+        tableView.reloadData()
     }
 
     func selectTapped(sender: UITableViewCell) {
-        let cell = sender as! SongListTableViewCell
         let indexPath = tableView.indexPath(for: sender)
         let song = Song.songListData[indexPath!.row]
 

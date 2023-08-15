@@ -16,10 +16,13 @@ class MixerAudioSystem: AudioSystem {
     let musicGainNode = SBGainNode()
     let voiceGainNode = SBGainNode()
     let reverbNode = SBReverbNode()
-    let autotuneNode = SBAutotuneNode()
+    let avpcNode = SBAutotuneNode()
 
     override init() {
         super.init()
+
+        reverbNode.isEnabled = false
+        avpcNode.isEnabled = false
 
         audioGraph.addNode(musicPlayer)
         audioGraph.addNode(voicePlayer)
@@ -27,12 +30,12 @@ class MixerAudioSystem: AudioSystem {
         audioGraph.addNode(musicGainNode)
         audioGraph.addNode(voiceGainNode)
         audioGraph.addNode(reverbNode)
-        audioGraph.addNode(autotuneNode)
+        audioGraph.addNode(avpcNode)
         audioGraph.connect(musicPlayer, to: musicGainNode)
         audioGraph.connect(musicGainNode, to: mixerNode)
         audioGraph.connect(voicePlayer, to: voiceGainNode)
-        audioGraph.connect(voiceGainNode, to: autotuneNode)
-        audioGraph.connect(autotuneNode, to: reverbNode)
+        audioGraph.connect(voiceGainNode, to: avpcNode)
+        audioGraph.connect(avpcNode, to: reverbNode)
         audioGraph.connect(reverbNode, to: mixerNode)
         audioGraph.connect(mixerNode, to: audioGraph.outputNode)
 
@@ -93,12 +96,12 @@ class MixerAudioSystem: AudioSystem {
         return Float(musicPlayer.position / musicPlayer.duration())
     }
 
-    func setMusicVolume(volume: Int) {
-        musicGainNode.gain = Float(volume) / 100.0
+    func setMusicVolume(volume: Float) {
+        musicGainNode.gain = volume
     }
 
-    func setVoiceVolume(volume: Int) {
-        voiceGainNode.gain = Float(volume) / 100.0
+    func setVoiceVolume(volume: Float) {
+        voiceGainNode.gain = volume
     }
 
     func enableReverb(enable: Bool) {
@@ -106,6 +109,6 @@ class MixerAudioSystem: AudioSystem {
     }
 
     func enableAutotune(enable: Bool) {
-        autotuneNode.isEnabled = enable
+        avpcNode.isEnabled = enable
     }
 }
