@@ -86,8 +86,8 @@ flowchart TD
 idSong[Song - AudioPlayerNode]-->idSongGain[GainNode]
 idSongGain-->idMixer[MixerNode]
 idVocal[Voice - AudioPlayerNode]-->idVoiceGain[GainNode]
-idVoiceGain-->idAutotune[AutotuneNode]
-idAutotune-->idCompressor[CompressorNode]
+idVoiceGain-->idAvpc[AutomaticVocalPitchCorrectionNode]
+idAvpc-->idCompressor[CompressorNode]
 idCompressor-->idReverb[ReverbNode]
 idReverb-->idMixer[MixerNode]
 idMixer-->idOutput(OutputNode)
