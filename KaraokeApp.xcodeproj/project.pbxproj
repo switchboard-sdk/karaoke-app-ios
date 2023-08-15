@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4FDF2D992A8A3CC30034DC53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2D982A8A3CC30034DC53 /* AppDelegate.swift */; };
+		4FDF2D9B2A8A3CC30034DC53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2D9A2A8A3CC30034DC53 /* SceneDelegate.swift */; };
+		4FDF2DA02A8A3CC30034DC53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDF2D9E2A8A3CC30034DC53 /* Main.storyboard */; };
+		4FDF2DA22A8A3CC40034DC53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDF2DA12A8A3CC40034DC53 /* Assets.xcassets */; };
+		4FDF2DA52A8A3CC40034DC53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDF2DA32A8A3CC40034DC53 /* LaunchScreen.storyboard */; };
+		4FDF2DAE2A8A3E5C0034DC53 /* SwitchboardSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF2DAD2A8A3E5C0034DC53 /* SwitchboardSDK */; };
+		4FDF2DB02A8A3E5C0034DC53 /* SwitchboardSuperpowered in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF2DAF2A8A3E5C0034DC53 /* SwitchboardSuperpowered */; };
+		4FDF2DB62A8A3ED90034DC53 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DB52A8A3ED90034DC53 /* Config.swift */; };
+		4FDF2DB82A8A3EE40034DC53 /* AudioSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DB72A8A3EE40034DC53 /* AudioSystem.swift */; };
+		4FDF2DBC2A8A41910034DC53 /* La_Bamba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4FDF2DB92A8A41900034DC53 /* La_Bamba.mp3 */; };
+		4FDF2DBD2A8A41910034DC53 /* Amazing_Grace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4FDF2DBA2A8A41900034DC53 /* Amazing_Grace.mp3 */; };
+		4FDF2DBE2A8A41910034DC53 /* House_of_the_Rising_Sun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4FDF2DBB2A8A41910034DC53 /* House_of_the_Rising_Sun.mp3 */; };
+		4FDF2DC02A8A430E0034DC53 /* SongListAudioSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DBF2A8A430E0034DC53 /* SongListAudioSystem.swift */; };
+		4FDF2DC22A8A43190034DC53 /* SingAudioSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DC12A8A43190034DC53 /* SingAudioSystem.swift */; };
+		4FDF2DC42A8A43300034DC53 /* MixerAudioSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DC32A8A43300034DC53 /* MixerAudioSystem.swift */; };
+		4FDF2DC62A8A44280034DC53 /* MixerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DC52A8A44280034DC53 /* MixerViewController.swift */; };
+		4FDF2DC82A8A44330034DC53 /* SingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DC72A8A44330034DC53 /* SingViewController.swift */; };
+		4FDF2DCA2A8A44460034DC53 /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DC92A8A44460034DC53 /* SongListViewController.swift */; };
+		4FDF2DCC2A8A48060034DC53 /* SongListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DCB2A8A48060034DC53 /* SongListData.swift */; };
+		4FDF2DD02A8A63840034DC53 /* SongListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DCF2A8A63840034DC53 /* SongListTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4FDF2D952A8A3CC30034DC53 /* KaraokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaraokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDF2D982A8A3CC30034DC53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4FDF2D9A2A8A3CC30034DC53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4FDF2D9F2A8A3CC30034DC53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4FDF2DA12A8A3CC40034DC53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4FDF2DA42A8A3CC40034DC53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4FDF2DA62A8A3CC40034DC53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FDF2DB52A8A3ED90034DC53 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		4FDF2DB72A8A3EE40034DC53 /* AudioSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSystem.swift; sourceTree = "<group>"; };
+		4FDF2DB92A8A41900034DC53 /* La_Bamba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = La_Bamba.mp3; sourceTree = "<group>"; };
+		4FDF2DBA2A8A41900034DC53 /* Amazing_Grace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Amazing_Grace.mp3; sourceTree = "<group>"; };
+		4FDF2DBB2A8A41910034DC53 /* House_of_the_Rising_Sun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = House_of_the_Rising_Sun.mp3; sourceTree = "<group>"; };
+		4FDF2DBF2A8A430E0034DC53 /* SongListAudioSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListAudioSystem.swift; sourceTree = "<group>"; };
+		4FDF2DC12A8A43190034DC53 /* SingAudioSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingAudioSystem.swift; sourceTree = "<group>"; };
+		4FDF2DC32A8A43300034DC53 /* MixerAudioSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerAudioSystem.swift; sourceTree = "<group>"; };
+		4FDF2DC52A8A44280034DC53 /* MixerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixerViewController.swift; sourceTree = "<group>"; };
+		4FDF2DC72A8A44330034DC53 /* SingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingViewController.swift; sourceTree = "<group>"; };
+		4FDF2DC92A8A44460034DC53 /* SongListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
+		4FDF2DCB2A8A48060034DC53 /* SongListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListData.swift; sourceTree = "<group>"; };
+		4FDF2DCF2A8A63840034DC53 /* SongListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4FDF2D922A8A3CC30034DC53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDF2DB02A8A3E5C0034DC53 /* SwitchboardSuperpowered in Frameworks */,
+				4FDF2DAE2A8A3E5C0034DC53 /* SwitchboardSDK in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4FDF2D8C2A8A3CC30034DC53 = {
+			isa = PBXGroup;
+			children = (
+				4FDF2D972A8A3CC30034DC53 /* KaraokeApp */,
+				4FDF2D962A8A3CC30034DC53 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4FDF2D962A8A3CC30034DC53 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FDF2D952A8A3CC30034DC53 /* KaraokeApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4FDF2D972A8A3CC30034DC53 /* KaraokeApp */ = {
+			isa = PBXGroup;
+			children = (
+				4FDF2DB42A8A3EA90034DC53 /* Mixer */,
+				4FDF2DB32A8A3EA10034DC53 /* Sing */,
+				4FDF2DB22A8A3E990034DC53 /* SongList */,
+				4FDF2DB12A8A3E920034DC53 /* AudioFiles */,
+				4FDF2D982A8A3CC30034DC53 /* AppDelegate.swift */,
+				4FDF2D9A2A8A3CC30034DC53 /* SceneDelegate.swift */,
+				4FDF2D9E2A8A3CC30034DC53 /* Main.storyboard */,
+				4FDF2DA12A8A3CC40034DC53 /* Assets.xcassets */,
+				4FDF2DA32A8A3CC40034DC53 /* LaunchScreen.storyboard */,
+				4FDF2DA62A8A3CC40034DC53 /* Info.plist */,
+				4FDF2DB52A8A3ED90034DC53 /* Config.swift */,
+				4FDF2DB72A8A3EE40034DC53 /* AudioSystem.swift */,
+				4FDF2DCB2A8A48060034DC53 /* SongListData.swift */,
+			);
+			path = KaraokeApp;
+			sourceTree = "<group>";
+		};
+		4FDF2DB12A8A3E920034DC53 /* AudioFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4FDF2DBA2A8A41900034DC53 /* Amazing_Grace.mp3 */,
+				4FDF2DBB2A8A41910034DC53 /* House_of_the_Rising_Sun.mp3 */,
+				4FDF2DB92A8A41900034DC53 /* La_Bamba.mp3 */,
+			);
+			path = AudioFiles;
+			sourceTree = "<group>";
+		};
+		4FDF2DB22A8A3E990034DC53 /* SongList */ = {
+			isa = PBXGroup;
+			children = (
+				4FDF2DBF2A8A430E0034DC53 /* SongListAudioSystem.swift */,
+				4FDF2DC92A8A44460034DC53 /* SongListViewController.swift */,
+				4FDF2DCF2A8A63840034DC53 /* SongListTableViewCell.swift */,
+			);
+			path = SongList;
+			sourceTree = "<group>";
+		};
+		4FDF2DB32A8A3EA10034DC53 /* Sing */ = {
+			isa = PBXGroup;
+			children = (
+				4FDF2DC12A8A43190034DC53 /* SingAudioSystem.swift */,
+				4FDF2DC72A8A44330034DC53 /* SingViewController.swift */,
+			);
+			path = Sing;
+			sourceTree = "<group>";
+		};
+		4FDF2DB42A8A3EA90034DC53 /* Mixer */ = {
+			isa = PBXGroup;
+			children = (
+				4FDF2DC32A8A43300034DC53 /* MixerAudioSystem.swift */,
+				4FDF2DC52A8A44280034DC53 /* MixerViewController.swift */,
+			);
+			path = Mixer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4FDF2D942A8A3CC30034DC53 /* KaraokeApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDF2DA92A8A3CC40034DC53 /* Build configuration list for PBXNativeTarget "KaraokeApp" */;
+			buildPhases = (
+				4FDF2D912A8A3CC30034DC53 /* Sources */,
+				4FDF2D922A8A3CC30034DC53 /* Frameworks */,
+				4FDF2D932A8A3CC30034DC53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KaraokeApp;
+			packageProductDependencies = (
+				4FDF2DAD2A8A3E5C0034DC53 /* SwitchboardSDK */,
+				4FDF2DAF2A8A3E5C0034DC53 /* SwitchboardSuperpowered */,
+			);
+			productName = KaraokeApp;
+			productReference = 4FDF2D952A8A3CC30034DC53 /* KaraokeApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4FDF2D8D2A8A3CC30034DC53 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					4FDF2D942A8A3CC30034DC53 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 4FDF2D902A8A3CC30034DC53 /* Build configuration list for PBXProject "KaraokeApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4FDF2D8C2A8A3CC30034DC53;
+			packageReferences = (
+				4FDF2DAC2A8A3E5C0034DC53 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */,
+			);
+			productRefGroup = 4FDF2D962A8A3CC30034DC53 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4FDF2D942A8A3CC30034DC53 /* KaraokeApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FDF2D932A8A3CC30034DC53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDF2DBD2A8A41910034DC53 /* Amazing_Grace.mp3 in Resources */,
+				4FDF2DA52A8A3CC40034DC53 /* LaunchScreen.storyboard in Resources */,
+				4FDF2DBC2A8A41910034DC53 /* La_Bamba.mp3 in Resources */,
+				4FDF2DA22A8A3CC40034DC53 /* Assets.xcassets in Resources */,
+				4FDF2DA02A8A3CC30034DC53 /* Main.storyboard in Resources */,
+				4FDF2DBE2A8A41910034DC53 /* House_of_the_Rising_Sun.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4FDF2D912A8A3CC30034DC53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDF2DD02A8A63840034DC53 /* SongListTableViewCell.swift in Sources */,
+				4FDF2DCC2A8A48060034DC53 /* SongListData.swift in Sources */,
+				4FDF2DC62A8A44280034DC53 /* MixerViewController.swift in Sources */,
+				4FDF2DB62A8A3ED90034DC53 /* Config.swift in Sources */,
+				4FDF2DB82A8A3EE40034DC53 /* AudioSystem.swift in Sources */,
+				4FDF2DC82A8A44330034DC53 /* SingViewController.swift in Sources */,
+				4FDF2DC22A8A43190034DC53 /* SingAudioSystem.swift in Sources */,
+				4FDF2D992A8A3CC30034DC53 /* AppDelegate.swift in Sources */,
+				4FDF2D9B2A8A3CC30034DC53 /* SceneDelegate.swift in Sources */,
+				4FDF2DC02A8A430E0034DC53 /* SongListAudioSystem.swift in Sources */,
+				4FDF2DC42A8A43300034DC53 /* MixerAudioSystem.swift in Sources */,
+				4FDF2DCA2A8A44460034DC53 /* SongListViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4FDF2D9E2A8A3CC30034DC53 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FDF2D9F2A8A3CC30034DC53 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4FDF2DA32A8A3CC40034DC53 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FDF2DA42A8A3CC40034DC53 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4FDF2DA72A8A3CC40034DC53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4FDF2DA82A8A3CC40034DC53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4FDF2DAA2A8A3CC40034DC53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KaraokeApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.KaraokeApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4FDF2DAB2A8A3CC40034DC53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KaraokeApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.KaraokeApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FDF2D902A8A3CC30034DC53 /* Build configuration list for PBXProject "KaraokeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDF2DA72A8A3CC40034DC53 /* Debug */,
+				4FDF2DA82A8A3CC40034DC53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FDF2DA92A8A3CC40034DC53 /* Build configuration list for PBXNativeTarget "KaraokeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDF2DAA2A8A3CC40034DC53 /* Debug */,
+				4FDF2DAB2A8A3CC40034DC53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4FDF2DAC2A8A3E5C0034DC53 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/switchboard-sdk/switchboard-sdk-ios";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4FDF2DAD2A8A3E5C0034DC53 /* SwitchboardSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FDF2DAC2A8A3E5C0034DC53 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardSDK;
+		};
+		4FDF2DAF2A8A3E5C0034DC53 /* SwitchboardSuperpowered */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FDF2DAC2A8A3E5C0034DC53 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardSuperpowered;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4FDF2D8D2A8A3CC30034DC53 /* Project object */;
+}

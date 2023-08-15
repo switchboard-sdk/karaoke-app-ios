@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg890"
+   version="1.1"
+   viewBox="0 0 81.900002 81.900002"
+   height="81.900002"
+   width="81.900002">
+  <metadata
+     id="metadata894">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>switchboard-mark-social@1x</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title873">switchboard-mark-social@1x</title>
+  <desc
+     id="desc875">Created with Sketch.</desc>
+  <defs
+     id="defs877" />
+  <g
+     transform="translate(-9.05,-9.05)"
+     fill-rule="evenodd"
+     fill="none"
+     stroke-width="1"
+     stroke="none"
+     id="logo">
+    <g
+       id="switchboard-mark-social">
+      <g
+         transform="translate(11,11)"
+         id="Group-Copy-4">
+        <circle
+           r="39"
+           cy="39"
+           cx="39"
+           stroke-width="3.9"
+           stroke="#52b666"
+           fill="#ffffff"
+           id="Oval-2" />
+        <ellipse
+           ry="4.5882354"
+           rx="4.6107268"
+           cy="39"
+           cx="14.781315"
+           stroke-width="4.16"
+           stroke="#52b666"
+           id="Oval-2-Copy-13" />
+        <ellipse
+           ry="4.5882354"
+           rx="4.6107268"
+           cy="20.647058"
+           cx="55.189274"
+           stroke-width="4.16"
+           stroke="#52b666"
+           id="Oval-2-Copy-16" />
+        <ellipse
+           ry="4.5882354"
+           rx="4.6107268"
+           cy="39"
+           cx="55.189274"
+           stroke-width="4.16"
+           stroke="#25693d"
+           id="Oval-2-Copy-15" />
+        <ellipse
+           ry="4.5882354"
+           rx="4.6107268"
+           cy="57.35294"
+           cx="55.189274"
+           stroke-width="4.16"
+           stroke="#25693d"
+           id="Oval-2-Copy-17" />
+        <path
+           transform="matrix(1,0,0,-1,0,96.352942)"
+           stroke-linecap="round"
+           stroke-width="3.12"
+           stroke="#25693d"
+           id="Path-2-Copy-5"
+           d="M 26.224913,57.352941 C 38.21938,57.352941 32.843231,39 43.745675,39" />
+        <path
+           stroke-linecap="round"
+           fill="#52b666"
+           stroke-width="3.12"
+           stroke="#25693d"
+           id="Path-6"
+           d="m 36.368512,39 h 7.377163" />
+        <path
+           stroke-linecap="round"
+           stroke-width="5.2"
+           stroke="#52b666"
+           id="Path-2"
+           d="M 26.224913,39 C 38.21938,39 32.843231,20.647059 43.745675,20.647059" />
+      </g>
+    </g>
+  </g>
+</svg>
