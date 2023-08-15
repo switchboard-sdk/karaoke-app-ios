@@ -119,7 +119,7 @@ class MixerViewController: UIViewController {
     }
 
     @IBAction func avpcSwitched(_ sender: Any) {
-        audioSystem.enableAutotune(enable: avpcSwitch.isOn)
+        audioSystem.enableAutomaticVocalPitchCorrection(enable: avpcSwitch.isOn)
     }
 
     @IBAction func exportTapped(_ sender: Any) {

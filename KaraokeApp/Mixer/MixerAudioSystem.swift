@@ -17,7 +17,7 @@ class MixerAudioSystem: AudioSystem {
     let voiceGainNode = SBGainNode()
     let reverbNode = SBReverbNode()
     let compressorNode = SBCompressorNode()
-    let avpcNode = SBAutotuneNode()
+    let avpcNode = SBAutomaticVocalPitchCorrectionNode()
 
     override init() {
         super.init()
@@ -116,7 +116,7 @@ class MixerAudioSystem: AudioSystem {
         compressorNode.isEnabled = enable
     }
 
-    func enableAutotune(enable: Bool) {
+    func enableAutomaticVocalPitchCorrection(enable: Bool) {
         avpcNode.isEnabled = enable
     }
 }
