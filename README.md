@@ -1,4 +1,4 @@
-# Karaoke App - Android
+# Karaoke App - iOS
 
 ## Important Links
 
