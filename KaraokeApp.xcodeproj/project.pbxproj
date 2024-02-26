@@ -27,7 +27,18 @@
 		4FDF2DCA2A8A44460034DC53 /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DC92A8A44460034DC53 /* SongListViewController.swift */; };
 		4FDF2DCC2A8A48060034DC53 /* SongListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DCB2A8A48060034DC53 /* SongListData.swift */; };
 		4FDF2DD02A8A63840034DC53 /* SongListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF2DCF2A8A63840034DC53 /* SongListTableViewCell.swift */; };
+		988C6F7B2B8CC868006E7BE4 /* KaraokeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988C6F7A2B8CC868006E7BE4 /* KaraokeAppUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		988C6F7E2B8CC868006E7BE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FDF2D8D2A8A3CC30034DC53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FDF2D942A8A3CC30034DC53;
+			remoteInfo = KaraokeApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4FDF2D952A8A3CC30034DC53 /* KaraokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaraokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +61,8 @@
 		4FDF2DC92A8A44460034DC53 /* SongListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
 		4FDF2DCB2A8A48060034DC53 /* SongListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListData.swift; sourceTree = "<group>"; };
 		4FDF2DCF2A8A63840034DC53 /* SongListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListTableViewCell.swift; sourceTree = "<group>"; };
+		988C6F782B8CC868006E7BE4 /* KaraokeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaraokeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		988C6F7A2B8CC868006E7BE4 /* KaraokeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaraokeAppUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		988C6F752B8CC868006E7BE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				4FDF2D972A8A3CC30034DC53 /* KaraokeApp */,
+				988C6F792B8CC868006E7BE4 /* KaraokeAppUITests */,
 				4FDF2D962A8A3CC30034DC53 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				4FDF2D952A8A3CC30034DC53 /* KaraokeApp.app */,
+				988C6F782B8CC868006E7BE4 /* KaraokeAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +161,14 @@
 			path = Mixer;
 			sourceTree = "<group>";
 		};
+		988C6F792B8CC868006E7BE4 /* KaraokeAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				988C6F7A2B8CC868006E7BE4 /* KaraokeAppUITests.swift */,
+			);
+			path = KaraokeAppUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,6 +193,24 @@
 			productReference = 4FDF2D952A8A3CC30034DC53 /* KaraokeApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		988C6F772B8CC868006E7BE4 /* KaraokeAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 988C6F802B8CC868006E7BE4 /* Build configuration list for PBXNativeTarget "KaraokeAppUITests" */;
+			buildPhases = (
+				988C6F742B8CC868006E7BE4 /* Sources */,
+				988C6F752B8CC868006E7BE4 /* Frameworks */,
+				988C6F762B8CC868006E7BE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				988C6F7F2B8CC868006E7BE4 /* PBXTargetDependency */,
+			);
+			name = KaraokeAppUITests;
+			productName = KaraokeAppUITests;
+			productReference = 988C6F782B8CC868006E7BE4 /* KaraokeAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -170,11 +218,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					4FDF2D942A8A3CC30034DC53 = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					988C6F772B8CC868006E7BE4 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 4FDF2D942A8A3CC30034DC53;
 					};
 				};
 			};
@@ -195,6 +247,7 @@
 			projectRoot = "";
 			targets = (
 				4FDF2D942A8A3CC30034DC53 /* KaraokeApp */,
+				988C6F772B8CC868006E7BE4 /* KaraokeAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -210,6 +263,13 @@
 				4FDF2DA22A8A3CC40034DC53 /* Assets.xcassets in Resources */,
 				4FDF2DA02A8A3CC30034DC53 /* Main.storyboard in Resources */,
 				4FDF2DBE2A8A41910034DC53 /* House_of_the_Rising_Sun.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		988C6F762B8CC868006E7BE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +295,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		988C6F742B8CC868006E7BE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				988C6F7B2B8CC868006E7BE4 /* KaraokeAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		988C6F7F2B8CC868006E7BE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FDF2D942A8A3CC30034DC53 /* KaraokeApp */;
+			targetProxy = 988C6F7E2B8CC868006E7BE4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4FDF2D9E2A8A3CC30034DC53 /* Main.storyboard */ = {
@@ -381,11 +457,12 @@
 				DEVELOPMENT_TEAM = NQ2VLM7NM7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KaraokeApp/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app records microphone input to create musical recordings.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,11 +486,12 @@
 				DEVELOPMENT_TEAM = NQ2VLM7NM7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KaraokeApp/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app records microphone input to create musical recordings.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,6 +502,51 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		988C6F812B8CC868006E7BE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.KaraokeAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KaraokeApp;
+			};
+			name = Debug;
+		};
+		988C6F822B8CC868006E7BE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.KaraokeAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KaraokeApp;
 			};
 			name = Release;
 		};
@@ -444,6 +567,15 @@
 			buildConfigurations = (
 				4FDF2DAA2A8A3CC40034DC53 /* Debug */,
 				4FDF2DAB2A8A3CC40034DC53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		988C6F802B8CC868006E7BE4 /* Build configuration list for PBXNativeTarget "KaraokeAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				988C6F812B8CC868006E7BE4 /* Debug */,
+				988C6F822B8CC868006E7BE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

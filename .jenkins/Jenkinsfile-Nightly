@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    triggers {
+        cron('H 0 * * *')
+    }
+    stages {
+        stage('Setup') {
+            steps {
+                sh 'bash scripts/test.sh'
+            }
+        }
+    }
+    post {
+        failure {
+            script {
+                slackSend(
+                    failOnError: true,
+                    channel: "switchboard-sdk",
+                    color: "danger",
+                    botUser: "true",
+                    message: "Build of ${env.JOB_NAME} #${env.BUILD_NUMBER} has *failed*. Check <${env.BUILD_URL}|Jenkins build URL>."
+                )
+            }
+        }
+        fixed {
+            script {
+                slackSend(
+                    failOnError: true,
+                    channel: "switchboard-sdk",
+                    color: "good",
+                    botUser: "true",
+                    message: "Build of ${env.JOB_NAME} #${env.BUILD_NUMBER} has been *fixed*. Check <${env.BUILD_URL}|Jenkins build URL>."
+                )
+            }
+        }
+    }
+}
