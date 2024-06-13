@@ -1,14 +1,15 @@
 {
+  "originHash" : "3d7a082c4cbceb4b8394fb32a9418c4aaad37ff335a418db0ac72327a53edc79",
   "pins" : [
     {
       "identity" : "switchboard-sdk-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/switchboard-sdk/switchboard-sdk-ios",
       "state" : {
-        "revision" : "a79244712c7d08a26abfb1a63747d4ad952e0a89",
-        "version" : "1.8.1"
+        "revision" : "f14f4bd742aff26d1935b6df770b7fbb3e918ac4",
+        "version" : "1.10.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
