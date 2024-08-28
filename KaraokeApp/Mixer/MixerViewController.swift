@@ -35,6 +35,7 @@ class MixerViewController: UIViewController {
 
         audioSystem.loadSong(songURL: currentSong.path)
         audioSystem.loadRecording(recordingPath: Config.recordingFilePath)
+        audioSystem.setRecordingOffset(offsetInSeconds: Config.roundTripLatencySeconds)
         songTitle.text = currentSong.displayName
         duration.text = "\(Int(audioSystem.getPositionInSeconds()) / 60)m \(Int(audioSystem.getPositionInSeconds()) % 60)s " +
         "/ \(currentSong.duration)"

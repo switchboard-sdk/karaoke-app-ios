@@ -12,6 +12,7 @@ struct Config {
     static let clientID = "Synervoz"
     static let clientSecret = "KaraokeApp"
     static let superpoweredLicenseKey = "ExampleLicenseKey-WillExpire-OnNextUpdate"
+    static var roundTripLatencySeconds = 0.0
 
     static var recordingFilePath: String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

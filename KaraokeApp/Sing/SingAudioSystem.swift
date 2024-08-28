@@ -71,9 +71,24 @@ class SingAudioSystem: AudioSystem {
     }
 
     func finish() {
+        calculateRoundTripLatency()
         super.stop()
         internalAudioGraph.stop()
         audioPlayerNode.stop()
         recorderNode.stop(Config.recordingFilePath, withFormat: Config.fileFormat)
+    }
+    
+    func calculateRoundTripLatency() {
+        let inputLatency = audioEngine.lastAudioSessionState?.inputLatency ?? -1.0
+        let outputLatency = audioEngine.lastAudioSessionState?.outputLatency ?? -1.0
+        let ioBufferDurationValue = audioEngine.lastAudioSessionState?.IOBufferDuration ?? -1.0
+
+        if inputLatency > 0 && outputLatency > 0 && ioBufferDurationValue > 0 {
+            // the multiply by two factor accounts for both input and output buffer latencies
+            // the ioBufferDurationValue defines how much audio data is processed in each cycle for both input and output.
+            // docs: https://developer.apple.com/documentation/avfaudio/avaudiosession/1616589-setpreferrediobufferduration?language=objc
+            Config.roundTripLatencySeconds = inputLatency + outputLatency + ioBufferDurationValue * 2
+            SBLogger.info("roundTripLatencySeconds: \(Config.roundTripLatencySeconds)")
+        }
     }
 }

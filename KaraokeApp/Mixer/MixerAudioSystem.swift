@@ -80,6 +80,10 @@ class MixerAudioSystem: AudioSystem {
     func loadRecording(recordingPath: String) {
         voicePlayer.load(recordingPath, withFormat: Config.fileFormat)
     }
+    
+    func setRecordingOffset(offsetInSeconds: Double) {
+        voicePlayer.startPosition = offsetInSeconds
+    }
 
     func getSongDurationInSeconds() -> Double {
         return musicPlayer.duration()
