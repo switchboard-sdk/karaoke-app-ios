@@ -8,14 +8,19 @@
 import SwitchboardSDK
 
 class AudioSystem {
-    let audioEngine = SBAudioEngine()
-    let audioGraph = SBAudioGraph()
+    var engineID: String = ""
 
     func start() {
-        audioEngine.start(audioGraph)
+        let result = Switchboard.callAction(withObject: engineID, actionName: "start", params: nil)
+        guard result.success else {
+            fatalError("Failed to start engine: \(result.error!)")
+        }
     }
 
     func stop() {
-        audioEngine.stop()
+        let result = Switchboard.callAction(withObject: engineID, actionName: "stop", params: nil)
+        guard result.success else {
+            fatalError("Failed to stop engine: \(result.error!)")
+        }
     }
 }

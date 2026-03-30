@@ -8,23 +8,51 @@
 import SwitchboardSDK
 
 class SongListAudioSystem: AudioSystem {
-    let audioPlayerNode = SBAudioPlayerNode()
+    private static let graphJSON = """
+    {
+        "type": "Realtime",
+        "config": {
+            "graph": {
+                "nodes": [
+                    {
+                        "id": "audioPlayerNode",
+                        "type": "AudioPlayer"
+                    }
+                ],
+                "connections": [
+                    {
+                        "sourceNode": "audioPlayerNode",
+                        "destinationNode": "outputNode"
+                    }
+                ]
+            }
+        }
+    }
+    """
 
     override init() {
         super.init()
-        audioGraph.addNode(audioPlayerNode)
-        audioGraph.connect(audioPlayerNode, to: audioGraph.outputNode)
+        let result = Switchboard.createEngine(withJSON: Self.graphJSON)
+        guard result.success else {
+            fatalError("Failed to create SongList engine: \(result.error!)")
+        }
+        engineID = result.value! as String
+    }
+
+    var isPlaying: Bool {
+        let result = Switchboard.getValueForKey("isPlaying", object: "audioPlayerNode")
+        return result.value as? Bool ?? false
     }
 
     func play() {
-        audioPlayerNode.play()
+        Switchboard.callAction(withObject: "audioPlayerNode", actionName: "play", params: nil)
     }
 
     func pause() {
-        audioPlayerNode.pause()
+        Switchboard.callAction(withObject: "audioPlayerNode", actionName: "pause", params: nil)
     }
 
     func loadSong(songURL: String) {
-        audioPlayerNode.load(songURL)
+        Switchboard.callAction(withObject: "audioPlayerNode", actionName: "load", params: ["audioFilePath": songURL])
     }
 }

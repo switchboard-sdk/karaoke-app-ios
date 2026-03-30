@@ -5,89 +5,150 @@
 //  Created by Iván Nádor on 2023. 08. 14..
 //
 
+import AVFoundation
 import SwitchboardSDK
-import SwitchboardSuperpowered
 
 class SingAudioSystem: AudioSystem {
-    let internalAudioGraph = SBAudioGraph()
-    let subgraphNode = SBSubgraphProcessorNode()
-    let audioPlayerNode = SBAudioPlayerNode()
-    let recorderNode = SBRecorderNode()
-    let splitterNode = SBBusSplitterNode()
-    let multiChannelToMonoNode = SBMultiChannelToMonoNode()
-    let vuMeterNode = SBVUMeterNode()
+    private static let graphJSON = """
+    {
+        "type": "Realtime",
+        "config": {
+            "microphoneEnabled": true,
+            "graph": {
+                "nodes": [
+                    {
+                        "id": "subgraphNode",
+                        "type": "SubgraphProcessor",
+                        "config": {
+                            "graph": {
+                                "nodes": [
+                                    {
+                                        "id": "multiChannelToMonoNode",
+                                        "type": "MultiChannelToMono"
+                                    },
+                                    {
+                                        "id": "busSplitterNode",
+                                        "type": "BusSplitter"
+                                    },
+                                    {
+                                        "id": "vuMeterNode",
+                                        "type": "Switchboard.VUMeter"
+                                    },
+                                    {
+                                        "id": "recorderNode",
+                                        "type": "Recorder"
+                                    },
+                                    {
+                                        "id": "audioPlayerNode",
+                                        "type": "AudioPlayer"
+                                    }
+                                ],
+                                "connections": [
+                                    {
+                                        "sourceNode": "inputNode",
+                                        "destinationNode": "multiChannelToMonoNode"
+                                    },
+                                    {
+                                        "sourceNode": "multiChannelToMonoNode",
+                                        "destinationNode": "busSplitterNode"
+                                    },
+                                    {
+                                        "sourceNode": "busSplitterNode",
+                                        "destinationNode": "vuMeterNode"
+                                    },
+                                    {
+                                        "sourceNode": "busSplitterNode",
+                                        "destinationNode": "recorderNode"
+                                    },
+                                    {
+                                        "sourceNode": "audioPlayerNode",
+                                        "destinationNode": "outputNode"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "connections": [
+                    {
+                        "sourceNode": "inputNode",
+                        "destinationNode": "subgraphNode"
+                    },
+                    {
+                        "sourceNode": "subgraphNode",
+                        "destinationNode": "outputNode"
+                    }
+                ]
+            }
+        }
+    }
+    """
 
     override init() {
         super.init()
-
-        vuMeterNode.smoothingDurationMs = 100.0
-        internalAudioGraph.addNode(audioPlayerNode)
-        internalAudioGraph.addNode(recorderNode)
-        internalAudioGraph.addNode(splitterNode)
-        internalAudioGraph.addNode(multiChannelToMonoNode)
-        internalAudioGraph.addNode(vuMeterNode)
-        internalAudioGraph.connect(internalAudioGraph.inputNode, to: splitterNode)
-        internalAudioGraph.connect(splitterNode, to: recorderNode)
-        internalAudioGraph.connect(splitterNode, to: multiChannelToMonoNode)
-        internalAudioGraph.connect(multiChannelToMonoNode, to: vuMeterNode)
-        internalAudioGraph.connect(audioPlayerNode, to: internalAudioGraph.outputNode)
-        subgraphNode.audioGraph = internalAudioGraph
-
-        audioGraph.addNode(subgraphNode)
-        audioGraph.connect(audioGraph.inputNode, to: subgraphNode)
-        audioGraph.connect(subgraphNode, to: audioGraph.outputNode)
-
-        audioEngine.microphoneEnabled = true
-    }
-
-    override func start() {
-        internalAudioGraph.start()
-        super.start()
+        let result = Switchboard.createEngine(withJSON: Self.graphJSON)
+        guard result.success else {
+            fatalError("Failed to create Sing engine: \(result.error!)")
+        }
+        engineID = result.value! as String
     }
 
     func playAndRecord() {
-        audioPlayerNode.play()
-        recorderNode.start()
+        Switchboard.callAction(withObject: "audioPlayerNode", actionName: "play", params: nil)
+        Switchboard.callAction(withObject: "recorderNode", actionName: "start", params: nil)
     }
 
     func loadSong(songURL: String) {
-        audioPlayerNode.load(songURL)
+        Switchboard.callAction(withObject: "audioPlayerNode", actionName: "load", params: ["audioFilePath": songURL])
     }
 
     func getSongDurationInSeconds() -> Double {
-        return audioPlayerNode.duration()
+        let result = Switchboard.getValueForKey("duration", object: "audioPlayerNode")
+        return (result.value as? NSNumber)?.doubleValue ?? 0.0
     }
 
     func getPositionInSeconds() -> Double {
-        return audioPlayerNode.position
+        let result = Switchboard.getValueForKey("position", object: "audioPlayerNode")
+        return (result.value as? NSNumber)?.doubleValue ?? 0.0
     }
 
     func getProgress() -> Float {
-        return Float(audioPlayerNode.position / audioPlayerNode.duration())
+        let duration = getSongDurationInSeconds()
+        guard duration > 0 else { return 0 }
+        return Float(getPositionInSeconds() / duration)
     }
 
     func isPlaying() -> Bool {
-        return audioPlayerNode.isPlaying
+        let result = Switchboard.getValueForKey("isPlaying", object: "audioPlayerNode")
+        return result.value as? Bool ?? false
+    }
+
+    var vuMeterLevel: Float {
+        let result = Switchboard.getValueForKey("level", object: "vuMeterNode")
+        return (result.value as? NSNumber)?.floatValue ?? 0.0
+    }
+
+    var vuMeterPeak: Float {
+        let result = Switchboard.getValueForKey("peak", object: "vuMeterNode")
+        return (result.value as? NSNumber)?.floatValue ?? 0.0
     }
 
     func finish() {
         calculateRoundTripLatency()
-        super.stop()
-        internalAudioGraph.stop()
-        audioPlayerNode.stop()
-        recorderNode.stop(Config.recordingFilePath, withFormat: Config.fileFormat)
+        stop()
+        Switchboard.callAction(withObject: "audioPlayerNode", actionName: "stop", params: nil)
+        Switchboard.setValue(Config.recordingFilePath, forKey: "outputFilePath", onObject: "recorderNode")
+        Switchboard.callAction(withObject: "recorderNode", actionName: "stop", params: nil)
     }
-    
-    func calculateRoundTripLatency() {
-        let inputLatency = audioEngine.lastAudioSessionState?.inputLatency ?? -1.0
-        let outputLatency = audioEngine.lastAudioSessionState?.outputLatency ?? -1.0
-        let ioBufferDurationValue = audioEngine.lastAudioSessionState?.IOBufferDuration ?? -1.0
 
-        if inputLatency > 0 && outputLatency > 0 && ioBufferDurationValue > 0 {
-            // the multiply by two factor accounts for both input and output buffer latencies
-            // the ioBufferDurationValue defines how much audio data is processed in each cycle for both input and output.
-            // docs: https://developer.apple.com/documentation/avfaudio/avaudiosession/1616589-setpreferrediobufferduration?language=objc
-            Config.roundTripLatencySeconds = inputLatency + outputLatency + ioBufferDurationValue * 2
+    func calculateRoundTripLatency() {
+        let session = AVAudioSession.sharedInstance()
+        let inputLatency = session.inputLatency
+        let outputLatency = session.outputLatency
+        let ioBufferDuration = session.ioBufferDuration
+
+        if inputLatency > 0 && outputLatency > 0 && ioBufferDuration > 0 {
+            Config.roundTripLatencySeconds = inputLatency + outputLatency + ioBufferDuration * 2
             SBLogger.info("roundTripLatencySeconds: \(Config.roundTripLatencySeconds)")
         }
     }

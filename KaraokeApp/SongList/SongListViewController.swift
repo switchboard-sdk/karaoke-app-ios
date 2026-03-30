@@ -42,7 +42,7 @@ class SongListViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.songName.text = song.displayName
         cell.songDuration.text = song.duration
 
-        if audioSystem.audioPlayerNode.isPlaying, currentSong?.path == song.path {
+        if audioSystem.isPlaying, currentSong?.path == song.path {
             cell.playButton.setTitle("Stop", for: .normal)
         } else {
             cell.playButton.setTitle("Play", for: .normal)
@@ -60,7 +60,7 @@ class SongListViewController: UIViewController, UITableViewDataSource, UITableVi
             audioSystem.loadSong(songURL: song.path)
         }
 
-        if audioSystem.audioPlayerNode.isPlaying {
+        if audioSystem.isPlaying {
             audioSystem.pause()
         } else {
             audioSystem.play()

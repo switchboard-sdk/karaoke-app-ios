@@ -62,8 +62,8 @@ class SingViewController: UIViewController {
         durationLabel.text = "\(Int(audioSystem.getPositionInSeconds()) / 60)m \(Int(audioSystem.getPositionInSeconds()) % 60)s " +
         "/ \(currentSong.duration)"
 
-        rms.progress = audioSystem.vuMeterNode.level
-        peak.progress = audioSystem.vuMeterNode.peak
+        rms.progress = audioSystem.vuMeterLevel
+        peak.progress = audioSystem.vuMeterPeak
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

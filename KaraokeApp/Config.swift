@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwitchboardSDK
 
 struct Config {
     static let clientID = "Synervoz"
@@ -16,13 +15,11 @@ struct Config {
 
     static var recordingFilePath: String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0].absoluteString + "recording.wav"
+        return paths[0].appendingPathComponent("recording.wav").path
     }
 
     static var mixedFilePath: String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0].absoluteString + "mix.wav"
+        return paths[0].appendingPathComponent("mix.wav").path
     }
-
-    static let fileFormat: SBCodec = .wav
 }
