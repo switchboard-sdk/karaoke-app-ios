@@ -43,11 +43,11 @@ class MixerViewController: UIViewController {
         progressSeekbar.setThumbImage(UIImage(), for: .normal)
         progressSeekbar.addTarget(self, action: #selector(progressChanged(slider:event:)), for: .valueChanged)
 
-        vocalSlider.value = audioSystem.voiceGainNode.gain
-        musicSlider.value = audioSystem.musicGainNode.gain
-        reverbSwitch.isOn = audioSystem.reverbNode.isEnabled
-        compressorSwitch.isOn = audioSystem.compressorNode.isEnabled
-        avpcSwitch.isOn = audioSystem.avpcNode.isEnabled
+        vocalSlider.value = audioSystem.voiceGain
+        musicSlider.value = audioSystem.musicGain
+        reverbSwitch.isOn = audioSystem.isReverbEnabled
+        compressorSwitch.isOn = audioSystem.isCompressorEnabled
+        avpcSwitch.isOn = audioSystem.isAVPCEnabled
 
         displayLink = CADisplayLink(target: self, selector: #selector(updateUI))
 
@@ -140,8 +140,7 @@ class MixerViewController: UIViewController {
                 filesToShare.append(fileURL)
                 let activityViewController = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
                 activityViewController.completionWithItemsHandler = { activityType, completed, returnedItems, activityError in
-                    self.audioSystem.voicePlayer.position = 0.0
-                    self.audioSystem.musicPlayer.position = 0.0
+                    self.audioSystem.resetPlayerPositions()
                     self.audioSystem.pause()
                     self.audioSystem.start()
                 }
