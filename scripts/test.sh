@@ -4,7 +4,7 @@ set -eu
 
 PROJECT_DIR="$(git rev-parse --show-toplevel)"
 XCODE_PROJECT_PATH="${PROJECT_DIR}/KaraokeApp.xcodeproj"
-SCHEME_NAME="KaraokeApp"
+SCHEME_NAME="KaraokeAppUITests"
 DESTINATION="platform=iOS Simulator,name=iPhone 17"
 
 xcodebuild clean test \
