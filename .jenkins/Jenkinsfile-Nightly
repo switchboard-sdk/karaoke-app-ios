@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    options {
+        lock('ios-simulator')
+    }
     triggers {
         cron('H 0 * * *')
     }
