@@ -42,12 +42,40 @@ xcrun xcodebuild clean \
   -derivedDataPath "${DERIVED_DATA}" \
   -destination "${DESTINATION}"
 
-xcrun xcodebuild test \
-  -project "${XCODE_PROJECT_PATH}" \
-  -scheme "KaraokeAppUITests" \
-  -derivedDataPath "${DERIVED_DATA}" \
-  -destination "${DESTINATION}" \
-  -parallel-testing-enabled NO
+# Run UI tests. Retry ONCE, and only for the known simulator-runner bootstrap
+# transient ("never finished bootstrapping" / "signal term while preparing to
+# run tests"). Any other failure -- a real test failure or the launchSession
+# crash -- exits immediately and is never masked.
+max_attempts=2
+test_log="$(mktemp)"
+attempt=1
+while :; do
+  set +e
+  xcrun xcodebuild test \
+    -project "${XCODE_PROJECT_PATH}" \
+    -scheme "KaraokeAppUITests" \
+    -derivedDataPath "${DERIVED_DATA}" \
+    -destination "${DESTINATION}" \
+    -parallel-testing-enabled NO 2>&1 | tee "${test_log}"
+  rc=${PIPESTATUS[0]}
+  set -e
+  if [ "${rc}" -eq 0 ]; then
+    break
+  fi
+  if [ "${attempt}" -lt "${max_attempts}" ] \
+     && grep -qE "never finished bootstrapping|signal term while preparing to run tests" "${test_log}"; then
+    attempt=$((attempt + 1))
+    echo "Test runner failed to bootstrap (known transient); rebooting simulator and retrying (attempt ${attempt}/${max_attempts})..."
+    xcrun simctl shutdown "${UDID}" || true
+    xcrun simctl boot "${UDID}" || true
+    xcrun simctl bootstatus "${UDID}" -b || true
+    continue
+  fi
+  rm -f "${test_log}"
+  xcrun simctl shutdown "${UDID}" || true
+  exit "${rc}"
+done
+rm -f "${test_log}"
 
 # Leave the node clean for the next job.
 xcrun simctl shutdown "${UDID}" || true
