@@ -13,16 +13,16 @@ DEVICE_NAME="iPhone 17"
 echo "Cleaning simulator state..."
 xcrun simctl shutdown all || true
 xcrun simctl delete unavailable || true
-xcrun simctl list devices \
-  | grep -E "Clone [0-9]+ of " \
-  | grep -oE '[0-9A-Fa-f-]{36}' \
-  | while read -r udid; do xcrun simctl delete "$udid" || true; done
+# `|| true`: grep exits 1 when there are no clones, which would abort under pipefail.
+clone_udids="$(xcrun simctl list devices | grep -E "Clone [0-9]+ of " | grep -oE '[0-9A-Fa-f-]{36}' || true)"
+for udid in ${clone_udids}; do xcrun simctl delete "${udid}" || true; done
 
 # Resolve a usable UDID for the target device (exact name match, not "... Pro").
+# `|| true`: tolerate no-match (handled by the guard below) and head's SIGPIPE under pipefail.
 UDID="$(xcrun simctl list devices available \
   | grep -E "^[[:space:]]+${DEVICE_NAME} \(" \
   | head -1 \
-  | grep -oE '[0-9A-Fa-f-]{36}')"
+  | grep -oE '[0-9A-Fa-f-]{36}' || true)"
 if [ -z "${UDID}" ]; then
   echo "Device '${DEVICE_NAME}' not found. Available:"; xcrun simctl list devices available
   exit 1
